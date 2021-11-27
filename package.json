@@ -9,6 +9,7 @@
   "dependencies": {
     "@expo-google-fonts/dm-sans": "^0.2.0",
     "@expo-google-fonts/dm-serif-display": "^0.2.0",
+    "@react-native-firebase/app": "^13.0.1",
     "expo": "~43.0.2",
     "expo-app-loading": "~1.2.1",
     "expo-linear-gradient": "~10.0.3",
