@@ -11,6 +11,7 @@
     "@expo-google-fonts/dm-serif-display": "^0.2.0",
     "expo": "~43.0.2",
     "expo-app-loading": "~1.2.1",
+    "expo-linear-gradient": "~10.0.3",
     "expo-splash-screen": "~0.13.5",
     "expo-status-bar": "~1.1.0",
     "expo-updates": "~0.10.13",
