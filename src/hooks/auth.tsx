@@ -18,6 +18,7 @@ type User = {
 
 type AuthContextData = {
   signIn: (email: string, password: string) => Promise<void>;
+  signOut: () => Promise<void>;
   isLogging: boolean;
   user: User | null;
 }
@@ -90,6 +91,12 @@ function AuthProvider({ children }: AuthProviderProps) {
     setIsLogging(false);
   }
 
+  async function signOut() {
+    await auth().signOut();
+    await AsyncStorage.removeItem(USER_COLLECTION);
+    setUser(null);
+  }
+
   useEffect(() => {
     loadUserStorageData();
   }, []);
@@ -97,6 +104,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   return (
     <AuthContext.Provider value={{
       signIn,
+      signOut,
       isLogging,
       user
     }}>
