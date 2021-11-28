@@ -21,7 +21,6 @@ export function Product() {
       </Header>
 
       <Photo uri="" />
-
     </Container>
   )
 }
