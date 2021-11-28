@@ -24,6 +24,12 @@ import {
 
 export function Product() {
   const [image, setImage] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [priceSizeP, setPriceSizeP] = useState('');
+  const [priceSizeM, setPriceSizeM] = useState('');
+  const [priceSizeG, setPriceSizeG] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handlePickerImage() {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -39,7 +45,6 @@ export function Product() {
       }
     }
   }
-
 
   return (
     <Container behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -67,7 +72,10 @@ export function Product() {
         <Form>
           <InputGroup>
             <Label>Nome</Label>
-            <Input />
+            <Input
+              onChangeText={setName}
+              value={name}
+            />
           </InputGroup>
 
           <InputGroup>
@@ -80,18 +88,37 @@ export function Product() {
               multiline
               maxLength={60}
               style={{ height: 80 }}
+              onChangeText={setDescription}
+              value={description}
             />
           </InputGroup>
 
           <InputGroup>
             <Label>Tamanhos e preços</Label>
 
-            <InputPrice size="P" />
-            <InputPrice size="M" />
-            <InputPrice size="G" />
+            <InputPrice
+              size="P"
+              onChangeText={setPriceSizeP}
+              value={priceSizeP}
+            />
+
+            <InputPrice
+              size="M"
+              onChangeText={setPriceSizeM}
+              value={priceSizeM}
+            />
+
+            <InputPrice
+              size="G"
+              onChangeText={setPriceSizeG}
+              value={priceSizeG}
+            />
           </InputGroup>
 
-          <Button title="Cadastrar pizza" />
+          <Button
+            title="Cadastrar pizza"
+            isLoading={isLoading}
+          />
         </Form>
       </ScrollView>
     </Container>
