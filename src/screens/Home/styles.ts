@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { FlatList } from 'react-native';
+import { ProductProps } from '@components/ProductCard';
 
 export const Container = styled.View`
   flex: 1;
@@ -65,5 +67,3 @@ export const Title = styled.Text`
     color: ${theme.COLORS.SECONDARY_900};
   `};
 `;
-
-
