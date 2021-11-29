@@ -18,7 +18,8 @@ import {
   GreetingText,
   Title,
   MenuHeader,
-  MenuItemsNumber
+  MenuItemsNumber,
+  NewProductButton
 } from './styles';
 
 export function Home() {
@@ -61,6 +62,10 @@ export function Home() {
 
   function handleOpen(id: string) {
     navigation.navigate('product', { id });
+  }
+
+  function handleAdd() {
+    navigation.navigate('product', {});
   }
 
 
@@ -109,6 +114,12 @@ export function Home() {
           paddingBottom: 125,
           marginHorizontal: 24
         }}
+      />
+
+      <NewProductButton
+        title="Cadastrar Pizza"
+        type="secondary"
+        onPress={handleAdd}
       />
     </Container>
   )
