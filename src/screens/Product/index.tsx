@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Platform, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { Platform, TouchableOpacity, ScrollView, Alert, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
@@ -115,6 +115,19 @@ export function Product() {
     navigation.goBack();
   }
 
+  function handleDelete() {
+    firestore()
+      .collection('pizzas')
+      .doc(id)
+      .delete()
+      .then(() => {
+        storage()
+          .ref(photoPath)
+          .delete()
+          .then(() => navigation.navigate('home'));
+      });
+  }
+
   useEffect(() => {
     if (id) {
       firestore()
@@ -143,9 +156,13 @@ export function Product() {
 
           <Title>Cadastrar</Title>
 
-          <TouchableOpacity>
-            <DeleteLabel>Deletar</DeleteLabel>
-          </TouchableOpacity>
+          {
+            id ?
+              <TouchableOpacity onPress={handleDelete}>
+                <DeleteLabel>Deletar</DeleteLabel>
+              </TouchableOpacity>
+              : <View style={{ width: 20 }} />
+          }
         </Header>
 
         <Upload>
