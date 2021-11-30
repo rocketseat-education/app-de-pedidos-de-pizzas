@@ -20,3 +20,10 @@ export const Photo = styled.Image`
   position: relative;
   top: -120px;
 `;
+
+export const Sizes = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;  
+`;
