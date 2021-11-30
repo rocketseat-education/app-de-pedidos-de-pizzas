@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import { Platform } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { Orders } from '@screens/Orders';
 import { Home } from '@screens/Home';
+import { Orders } from '@screens/Orders';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -18,11 +18,10 @@ export function UserTabRoutes() {
         tabBarInactiveTintColor: COLORS.SECONDARY_400,
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarBadgeStyle: {
+        tabBarStyle: {
           height: 80,
-          paddingVertical: Platform.OS === 'ios' ? 20 : 0,
+          paddingVertical: Platform.OS === 'ios' ? 20 : 0
         }
-
       }}
     >
       <Screen
@@ -35,5 +34,5 @@ export function UserTabRoutes() {
         component={Orders}
       />
     </Navigator>
-  )
+  );
 }
