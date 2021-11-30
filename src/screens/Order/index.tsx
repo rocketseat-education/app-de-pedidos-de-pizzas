@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { PIZZA_TYPES } from '@utils/pizzaTypes';
-
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 import { ButtonBack } from '@components/ButtonBack';
@@ -25,12 +25,18 @@ import {
 export function Order() {
   const [size, setSize] = useState('');
 
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <Container behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ContentScroll>
         <Header>
           <ButtonBack
-            onPress={() => { }}
+            onPress={handleGoBack}
             style={{ marginBottom: 108 }}
           />
         </Header>
