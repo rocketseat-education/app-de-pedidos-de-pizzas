@@ -14,6 +14,7 @@
     "@react-native-firebase/auth": "^13.0.1",
     "@react-native-firebase/firestore": "^13.0.1",
     "@react-native-firebase/storage": "^13.0.1",
+    "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "expo": "~43.0.2",
